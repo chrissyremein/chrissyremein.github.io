@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+   <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--
+    Load CartoDB's code so we can pull in our CartoDB maps.
+    -->
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    
+     <style>  html, body {
+        /*height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%*/;
+       border: 8px 
+       solid #34495e}
+      
+       body{ text-align: center; 
+        }
+       
+        #mapC {
+        height: 500px;
+        width: 100%;
+      }
+      
+       
+      .neighbourhood-picker {
+        position: bottom;
+        top: 20px;
+        right: 20px;
+       background: grey;
+     border: 5px solid #34495e;
+        margin: 3px;
+       padding: 5px;
+      }
+      }
+ 
+
+  
+a:link {color: orange;
+}
+a:visited {
+    color: orange;
+}
+a:hover {
+    color: hotpink;
+}
+a:active {
+    color: blue;
+ 
+   
+  </style> 
+  
+      <script>
+     var dataLayer;
+      $(document).ready(function () {
+       
+        cartodb.createVis('mapC', 'https://cer.cartodb.com/api/v2/viz/8de1f186-df33-11e5-93c7-0e787de82d45/viz.json')
+        
+     .done(function (vis, layers) {
+  
+            dataLayer = layers[1].getSubLayer(0);
+          });
+    
+        $('.neighbourhood-picker').change(function () {
+          var neighbourhood = $(this).val();
+          var sql;
+          if (neighbourhood === 'All Listings') {
+            sql = "SELECT * FROM table_29";
+          }
+          else {
+            
+            sql = "SELECT * FROM table_29 WHERE neighbourhood = '" + neighbourhood + "'";
+          }
+          dataLayer.setSQL(sql);
+        });
+      });
+
+        
+    </script>   
+	
+ <title>
+	</title>
+		
+	</head>
+
+  <body>
+	
+    <h1> <font color="#34495e"> 
+      Assignment 7  </font>
+</h1>	
+    <p> <strong> <font color="#34495e"> New, Orleans Airbnb data viewable direct from Airbnb. Click the photo to see details. </font> </p>
+  
+<p> <a href="http://insideairbnb.com/new-orleans/">
+ <img width="75%" height="75%" src= "https://chrissyremein.github.io/airbnbdata.jpg" /> </a>
+ </p>
+      
+        <p>
+        Go to New, Orleans official city government <a href= "http://www.nola.gov/visitors/"> 
+      page</a> to learn more about the city.</p>
+       
+       <p> 
+    Here is a rendering of the same map from Carto DB with parts of the same dataset from Airbnb.
+   
+         </strong> </p> 
+  
+<div id="mapC"></div>
+ <p> <strong> <font color="#34495e"> See locations in different districts: <font/> <strong/> <p/>
+<select   class="neighbourhood-picker"> 
+        <option value= "Irish Channel"> Irish Channel</option>
+        <option value= "Garden District"> Garden District </option>
+        <option value= "All Listings" > All Listings </option>
+ 
+   </select>
+
+    
+
+	</body>
+</html>
