@@ -22,10 +22,10 @@
     var dataLayer;
       $(document).ready(function () {
        
-        cartodb.createVis('mapC', 'http://thenewschool.cartodb.com/u/cremein/api/v2/viz/e7c4bdd8-0a52-11e6-a686-0e31c9be1b51/viz.json')
+        cartodb.createVis('mapC', 'https://thenewschool.cartodb.com/u/cremein/api/v2/viz/e7c4bdd8-0a52-11e6-a686-0e31c9be1b51/viz.json')
        .done(function  (vis, layers) {
     
-    $.getJSON('http://thenewschool.cartodb.com/u/cremein/api/v2/sql?format=GeoJSON&q=SELECT * FROM ulsterwest_1')
+    $.getJSON('https://thenewschool.cartodb.com/u/cremein/api/v2/sql?format=GeoJSON&q=SELECT * FROM ulsterwest_1')
              
     .done(function (data) {
       L.geoJson(data).addTo(map);   
