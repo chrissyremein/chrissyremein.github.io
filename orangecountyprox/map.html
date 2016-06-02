@@ -24,12 +24,7 @@
         cartodb.createVis('mapC', 'https://thenewschool.cartodb.com/u/cremein/api/v2/viz/e7c4bdd8-0a52-11e6-a686-0e31c9be1b51/viz.json')
        .done(function  (vis, layers) {
     
-    $.getJSON('https://thenewschool.cartodb.com/u/cremein/api/v2/sql?format=GeoJSON&q=SELECT * FROM ulsterwest_1')
-             
-    .done(function (data) {
-      L.geoJson(data).addTo(map);   
-              
-    });  
+   
 
     
   dataLayer = layers[1].getSubLayer(0);
@@ -45,6 +40,7 @@
       $collapsed.css({ height: 0 }).removeClass('shown');
     }
     else {
+      $('.collapsed').css({ height: 0 }).removeClass('shown');
       $collapsed.css({ height: 120  }).addClass('shown');
     }
     return false;
@@ -59,7 +55,7 @@
       if ($collapsed.is('.shown')) {
   
       $collapsed.css({ height: 0 }).removeClass('shown');
-    }
+  
     else {
       $collapsed.css({ height: 120  }).addClass('shown');
     }
