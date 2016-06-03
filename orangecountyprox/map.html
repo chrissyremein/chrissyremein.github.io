@@ -63,52 +63,7 @@
     });
    
    
-     $('.buffer-1-5').click (function () {
-    $(this).toggleClass('active');
-    if ($(this).hasClass('active')) { 
-     var sql = "SELECT * FROM cremein.cpv_buffers_wgs_84 WHERE dist = '1.5 Miles'";
-    }
-    else {
-     var sql = "SELECT * FROM cremein.cpv_buffers_wgs_84";
-    }
-    dataLayer.setSQL(sql);
-   });
-      
    
-    $('.buffer-5').click (function () {
-    $(this).toggleClass('active');
-    if ($(this).hasClass('active')) { 
-     var sql = "SELECT * FROM cremein.cpv_buffers_wgs_84 WHERE dist = '5 Miles'";
-    }
-    else {
-     var sql = "SELECT * FROM cremein.cpv_buffers_wgs_84";
-    }
-    dataLayer.setSQL(sql);
-   });
-    
-     
-    $('.buffer-15').click (function () {
-    $(this).toggleClass('active');
-    if ($(this).hasClass('active')) { 
-     var sql = "SELECT * FROM cremein.cpv_buffers_wgs_84 WHERE dist = '15 Miles'";
-    }
-    else {
-     var sql = "SELECT * FROM cremein.cpv_buffers_wgs_84";
-    }
-    dataLayer.setSQL(sql);
-   });
-     
-   
-    $('.buffer-30').click (function () {
-    $(this).toggleClass('active');
-    if ($(this).hasClass('active')) { 
-     var sql = "SELECT * FROM cremein.cpv_buffers_wgs_84 WHERE dist =  '30 Miles'";
-    }
-    else {
-     var sql = "SELECT * FROM cremein.cpv_buffers_wgs_84";
-    }
-    dataLayer.setSQL(sql);
-   });
     
        });
 </script>
